@@ -1,0 +1,12 @@
+language: haxe
+haxe:
+  - "4.0.0-rc.1"
+
+install:
+  - yes | haxelib install hxcpp
+  - yes | haxelib install utest
+
+script:
+  - haxe test.hxml
+  - neko out/neko/test.n
+  - out/cpp/TestAll

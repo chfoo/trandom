@@ -1,0 +1,9 @@
+<xml>
+    <files id="haxe">
+        <compilerflag value="-I${this_dir}" />
+        <compilerflag value="-I${haxelib:trandom}/native" if="haxelib:trandom" />
+        <file name="${this_dir}/trandom_native.c" />
+    </files>
+    <target id="haxe">
+    </target>
+</xml>
