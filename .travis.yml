@@ -3,8 +3,7 @@ haxe:
   - "4.0.0-rc.1"
 
 install:
-  - yes | haxelib install hxcpp
-  - yes | haxelib install utest
+  - yes | haxelib install test.hxml
 
 script:
   - haxe test.hxml
