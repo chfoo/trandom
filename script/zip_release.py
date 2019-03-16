@@ -9,6 +9,7 @@ import os.path
 import subprocess
 import sys
 import time
+import zipfile
 
 NAME = 'trandom'
 
@@ -31,10 +32,27 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     subprocess.run(['git', 'archive', 'HEAD', '-o', output_path], cwd=project_dir)
 
+    if '--bin' in sys.argv:
+        add_bin(output_path, project_dir)
+
     if '--sign' in sys.argv:
         sign(output_path)
 
     print('Done')
+
+def add_bin(zip_filename: str, project_dir: str):
+    print('Adding binaries')
+
+    filenames = (
+        'bin/win32/trandom.hdll',
+        'bin/win32/trandom.ndll',
+    )
+
+    zip_file = zipfile.ZipFile(zip_filename, mode='a')
+
+    for filename in filenames:
+        print('Adding', filename)
+        zip_file.write(os.path.join(project_dir, filename), filename)
 
 def sign(filename: str):
     print('Sign release:')

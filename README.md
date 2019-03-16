@@ -63,19 +63,23 @@ Add a Haxe define `-D trandom_windows` to the Haxe compiler config. This define 
 
 #### Hashlink
 
-The hdll library `trandom.hdll` needs to be built manually. If you are using MinGW-w64:
+The hdll library `trandom.hdll` needs to be included with your application. A prebuilt library is included in the release ZIP file.
+
+To build it manually using MinGW-w64:
 
     i686-w64-mingw32-gcc.exe -O -D LIBHL_EXPORTS -fPIC -shared -std=c11 -o trandom.hdll trandom_native.c -I hl-1.9.0-win/include
 
-Adjust paths in the command as needed and include the hdll file with your application.
+Adjust paths in the command as needed.
 
 #### Neko
 
-The ndll library `trandom.ndll` needs to be built manually. If you are using MinGW-w64:
+The hdll library `trandom.hdll` needs to be included with your application. A prebuilt library is included in the release ZIP file.
+
+To build it manually using MinGW-w64:
 
     i686-w64-mingw32-gcc.exe -O -D NEKOVM_DLL_EXPORTS -fPIC -shared -std=c11 -o trandom.hdll trandom_native.c -I $NEKO_INSTPATH/include -L $NEKO_INSTPATH -lneko
 
-Adjust paths in the command as needed and include the ndll file with your application.
+Adjust paths in the command as needed.
 
 #### CPP - MinGW-w64 (Optional)
 
