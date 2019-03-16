@@ -6,14 +6,15 @@ trandom is a cross-platform Haxe library for accessing cryptographic secure numb
 
 | Target | Source |
 |--------|--------|
-| CS (C#) | `cs.system.security.cryptography.RandomNumberGenerator` |
 | CPP (C++) | See Sys. Windows: `RtlGenRandom` |
+| CS (C#) | `cs.system.security.cryptography.RandomNumberGenerator` |
+| Flash (SWF) | `flash.crypto.generateRandomBytes` |
 | Hashlink |See Sys. Windows: `RtlGenRandom` |
 | Java | `java.security.SecureRandom` |
 | JS | HTML: `window.crypto`, Nodejs: `crypto.randomBytes` |
+| Lua | See Sys. Windows: not implemented |
 | Neko | See Sys. Windows: `RtlGenRandom` |
 | PHP | `random_int` |
-| Lua | See Sys. Windows: not implemented |
 | Python | `os.urandom` |
 | Sys | Any OS that provides `/dev/urandom`, `/dev/random` |
 
@@ -87,6 +88,10 @@ To enable compilation by MinGW, add this to `%HOMEPATH%/.hxcpp_config.xml` under
 If needed, add the path to MinGW-w64:
 
     <set name="MINGW_ROOT" value="C:\Program Files (x86)\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32" />
+
+### Flash
+
+Use `-swf-version 11` or greater version number in your Haxe compiler config to access the Flash crypto package API. The default is 10.0. At the time of writing, the current version is 43.
 
 ## Considerations
 

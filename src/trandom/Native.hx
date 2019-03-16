@@ -41,6 +41,9 @@ class Native {
         rng.GetBytes(buffer);
         return arrayToInt(buffer);
 
+        #elseif flash
+        return arrayToInt(untyped __global__["flash.crypto.generateRandomBytes"](4));
+
         #elseif java
         return rng.nextInt();
 

@@ -8,6 +8,9 @@
 --next
 -lua out/lua/test.lua
 --next
+-swf out/swf/test.swf
+-swf-version 43
+--next
 -neko out/neko/test.n
 --next
 -php out/php
