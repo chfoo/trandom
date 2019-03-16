@@ -1,3 +1,7 @@
 # Compiled output
 out/
 bin/
+
+## IDEs
+# Visual Studio Code
+.vscode/
