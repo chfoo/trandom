@@ -51,7 +51,11 @@ class Native {
         return getJS();
 
         #elseif php
+        #if haxe4
         return php.Syntax.code("random_int({0}, {1})", -2147483648, 2147483647);
+        #else
+        return untyped __php__("random_int({0}, {1})", -2147483648, 2147483647);
+        #end
 
         #elseif python
         return arrayToInt(PythonExtern.urandom(4));
@@ -117,13 +121,31 @@ class Native {
 
     #if js
     static function getJS():Int {
-        if (js.Syntax.typeof(js.Browser.window) != "undefined") {
+        #if haxe4
+        var hasWindow = js.Syntax.typeof(js.Browser.window) != "undefined";
+        #else
+        var hasWindow = untyped __js__("typeof window") != "undefined";
+        #end
+
+        if (hasWindow) {
             var buffer = new js.html.Int32Array(1);
             js.Browser.window.crypto.getRandomValues(buffer);
             return buffer[0];
 
-        } else if (js.Syntax.typeof(untyped __js__("require")) != "undefined") {
+        }
+        #if haxe4
+        var isNodejs = js.Syntax.typeof(untyped __js__("require")) != "undefined";
+        #else
+        var isNodejs = untyped __js__("typeof require") != "undefined";
+        #end
+
+        if (isNodejs) {
+            #if haxe4
+            var crypto = js.Syntax.code("require({0})", "crypto");
+            #else
             var crypto = untyped __js__("require('crypto')");
+            #end
+
             var buffer = crypto.randomBytes(4);
             return arrayToInt(buffer);
 

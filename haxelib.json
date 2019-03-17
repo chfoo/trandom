@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["cross", "random"],
     "description": "Cross-platform library for accessing cryptographic secure numbers from the target's cryptographic random number generator",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "classPath": "src/",
-    "releasenote": "Initial release",
+    "releasenote": "Added Haxe 3 support",
     "contributors": ["chfoo"],
     "dependencies": {
     }
