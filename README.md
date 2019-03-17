@@ -40,7 +40,22 @@ Or finally for the security minded, you may install from a ZIP file release afte
 
 ### Usage
 
-trandom only provides one API method which the example below demonstrates:
+trandom only provides one API method:
+
+```haxe
+import trandom.TargetRandom;
+public static function random():Int
+```
+
+Returns a signed 32-bit integer from the target's cryptographic secure random number generator.
+
+If there is no secure source, a String exception is thrown. Other exceptions may be thrown by the underlying target.
+
+ Depending on the operating system, this method may block for a long period of time until there is sufficient entropy.
+
+### Example
+
+The following example shows how to convert the value to a byte array:
 
 ```haxe
 import trandom.TargetRandom;
@@ -49,11 +64,12 @@ class Main {
     public static function main() {
         var randomValue = TargetRandom.random();
         trace(randomValue); // => Int
+
+        var bytes = haxe.io.Bytes.alloc(4);
+        bytes.setInt32(0, randomValue);
     }
 }
 ```
-
-`randomValue` is a signed 32-bit integer. If there is no cryptographic source, an exception of type String is thrown by trandom or any other exception type by the underlying target.
 
 ## Platform notes
 
