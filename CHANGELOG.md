@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2.1 (Unreleased)
+0.2.1 (2019-03-17)
 ------------------
 
 * Added Haxe 3 support

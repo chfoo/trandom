@@ -22,7 +22,7 @@ trandom is a cross-platform Haxe library for accessing cryptographic secure numb
 
 Requires:
 
-* Haxe 4
+* Haxe 3 or 4
 
 ### Install
 
