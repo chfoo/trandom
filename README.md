@@ -59,7 +59,7 @@ class Main {
 
 ### Windows
 
-Add a Haxe define `-D trandom_windows` to the Haxe compiler config. This define will enable the call to RtlGenRandom for targets that don't provide a builtin API to a cryptographic source. It uses the target's foreign function interface system to bind with trandom's native C code.
+A macro will automatically add `-D trandom_windows` to the Haxe compiler config. This define will enable the call to RtlGenRandom for targets that don't provide a builtin API to a cryptographic source. It uses the target's foreign function interface system to bind with trandom's native C code. If you don't want this behavior, add `-D trandom_no_auto_ffi`.
 
 #### Hashlink
 
