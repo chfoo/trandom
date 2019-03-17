@@ -4,7 +4,7 @@
     "license": "MIT",
     "tags": ["cross", "random"],
     "description": "Cross-platform library for accessing cryptographic secure numbers from the target's cryptographic random number generator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "classPath": "src/",
     "releasenote": "Initial release",
     "contributors": ["chfoo"],
