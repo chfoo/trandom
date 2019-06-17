@@ -83,7 +83,7 @@ The hdll library `trandom.hdll` needs to be included with your application. A pr
 
 To build it manually using MinGW-w64:
 
-    i686-w64-mingw32-gcc.exe -O -D LIBHL_EXPORTS -fPIC -shared -std=c11 -o trandom.hdll trandom_native.c -I hl-1.9.0-win/include
+    i686-w64-mingw32-gcc.exe -O -D HASHLINK_DLL_EXPORTS -fPIC -shared -std=c11 -o trandom.hdll trandom_native.c -I hl-1.9.0-win/include
 
 Adjust paths in the command as needed.
 
