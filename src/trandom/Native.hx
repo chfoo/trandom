@@ -128,7 +128,11 @@ class Native {
         #end
 
         if (hasWindow) {
+            #if haxe4
+            var buffer = new js.lib.Int32Array(1);
+            #else
             var buffer = new js.html.Int32Array(1);
+            #end
             js.Browser.window.crypto.getRandomValues(buffer);
             return buffer[0];
 

@@ -51,7 +51,7 @@ Returns a signed 32-bit integer from the target's cryptographic secure random nu
 
 If there is no secure source, a String exception is thrown. Other exceptions may be thrown by the underlying target.
 
- Depending on the operating system, this method may block for a long period of time until there is sufficient entropy.
+Depending on the operating system, this method may block for a long period of time until there is sufficient entropy.
 
 ### Example
 
@@ -99,6 +99,8 @@ Adjust paths in the command as needed.
 
 #### CPP - MinGW-w64 (Optional)
 
+The library is statically linked in the hxcpp pipeline, so no `dll` needs to be built. The following is extra information for those who want to use MingGW instead of Visual Studio.
+
 If you are having trouble getting hxcpp to use Visual Studio for compilation, you can use MingGW-w64.
 
 To enable compilation by MinGW, add this to `%HOMEPATH%/.hxcpp_config.xml` under the "VARS" section:
@@ -118,6 +120,13 @@ Use `-swf-version 11` or greater version number in your Haxe compiler config to 
 * Don't fallback to using `Math.random` or `Sys.random` for cryptographic purposes
 * If used in a virtual machine with snapshots, the returned values may be the same
 * The quality of randomness is determined by the target or platform
+* Be aware of DLL injection attacks (for hdll and ndll libraries)
+
+### Alternatives
+
+* Use a libsodium Haxe binding to [randombytes_random()](https://libsodium.gitbook.io/doc/generating_random_data)
+  * libsodium also includes many other cross-platform methods. If you are using trandom for cryptographic purposes, it probably would be easier to use libsodium throughout.
+* On native platforms, you can use [callfunc](https://github.com/chfoo/callfunc) to call libsodium or OS functions directly.
 
 ## Contributing
 

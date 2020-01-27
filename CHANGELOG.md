@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.0 (2020-01-27)
+------------------
+
+The version bump to 1.0 means the API (the only function available) is stable. No significant changes were made from the previous release.
+
+* Fixed: Deprecated js warning on Haxe 4
+
 0.2.1 (2019-03-17)
 ------------------
 
